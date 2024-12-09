@@ -1,9 +1,15 @@
+import { Route, Routes } from "react-router";
 import "./App.css";
+import Login from "./Pages/Login";
+import SignUp from "./Pages/signUp";
 
 function App() {
   return (
     <>
-      <h1>Mosha</h1>
+      <Routes>
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
+      </Routes>
     </>
   );
 }
