@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import Account from "../Components/Account";
 import BtnForm from "../Components/BtnForm";
 import FormAccount from "../Components/FormAccount";
@@ -8,8 +8,6 @@ import { FaArrowLeft } from "react-icons/fa";
 const Login = () => {
   const [Email, setEmail] = useState<string>("");
   const [Password, setPassword] = useState<string>("");
-  const Navigate = useNavigate();
-  const User = JSON.parse(localStorage.getItem("user")!);
   return (
     <>
       <div className="flex justify-center max-sm:mx-5">
