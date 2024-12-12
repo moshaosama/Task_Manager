@@ -87,7 +87,7 @@ const Home = () => {
                 <>
                   <div
                     key={el.id}
-                    className="bg-[#e0e0e0] w-96 p-3 rounded-xl font-bold flex justify-between items-center my-1"
+                    className="bg-[#e0e0e0] w-96 max-sm:w-80 p-3 rounded-xl font-bold flex justify-between items-center my-1"
                   >
                     <div>
                       <p>- {el.Title}</p>
