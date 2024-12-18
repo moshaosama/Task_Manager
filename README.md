@@ -12,12 +12,11 @@ Task Manager is a web application for managing tasks, allowing users to add, edi
 - **Frontend**:
   - React.js
   - React Router
-  - Redux (State Management)
-  - CSS (or any CSS framework like Tailwind or Bootstrap)
+  - CSS (or any CSS framework like Tailwind)
 
 - **Backend**:
   - Node.js / Express.js
-  - MongoDB (NoSQL Database)
+  - mySQL
 
 ## How to Run Locally
 1. **Clone the Repository**:
