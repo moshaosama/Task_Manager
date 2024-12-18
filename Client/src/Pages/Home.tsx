@@ -40,9 +40,16 @@ const Home = () => {
       body: JSON.stringify({
         Title: Title,
       }),
-    }).then((res) => {
-      return res.json();
-    });
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        setLists((prevLists) => ({
+          data: [...(prevLists?.data || []), res.data],
+          statusbar: prevLists?.statusbar || "", // Provide a default value
+        }));
+      });
   }
 
   return (
@@ -74,7 +81,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-        {lists?.data.length === 0 ? (
+        {lists?.data.length === 1 ? (
           <>
             <p className="text-red-500 text-3xl font-bold">
               You Don't have any Lists
@@ -82,32 +89,30 @@ const Home = () => {
           </>
         ) : (
           <>
-            {lists?.data.map((el) => {
+            {lists?.data.slice(1).map((el) => {
               return (
-                <>
-                  <div
-                    key={el.id}
-                    className="bg-[#e0e0e0] w-96 max-sm:w-80 p-3 rounded-xl font-bold flex justify-between items-center my-1"
-                  >
-                    <div>
-                      <p>- {el.Title}</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <MdEdit className="text-gray-600 text-2xl cursor-pointer  hover:text-gray-400 transition-all duration-200" />
-                      <MdDelete
-                        className="text-red-600 text-2xl cursor-pointer hover:text-red-300 transition-all duration-200"
-                        onClick={() => DeleteList(el.Title)}
-                      />
-                    </div>
+                <div
+                  key={el.id}
+                  className="bg-[#e0e0e0] w-96 max-sm:w-80 p-3 rounded-xl font-bold flex justify-between items-center my-1"
+                >
+                  <div>
+                    <p>- {el.Title}</p>
                   </div>
-                </>
+                  <div className="flex items-center gap-3">
+                    <MdEdit className="text-gray-600 text-2xl cursor-pointer  hover:text-gray-400 transition-all duration-200" />
+                    <MdDelete
+                      className="text-red-600 text-2xl cursor-pointer hover:text-red-300 transition-all duration-200"
+                      onClick={() => DeleteList(el.Title)}
+                    />
+                  </div>
+                </div>
               );
             })}
           </>
         )}
       </div>
 
-      {User ? null : <CheckLogin />}
+      {/* {User ? null : <CheckLogin />} */}
     </>
   );
 };
